@@ -1,0 +1,160 @@
+%編譯 LaTeX 的時候如果出現問題，可以先把 aux 檔案刪掉再重新編譯一次試試。
+
+\documentclass[12pt, a4paper,twoside]{report}
+\usepackage[top=1in, bottom=1in,inner=2cm,outer=2cm]{geometry} %left=4cm,right=2cm would be equivalent
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\setmainfont{Times New Roman}
+\setCJKmainfont{STFangsong}
+\XeTeXlinebreaklocale "zh" %中文自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt %文字的彈性間距
+\setlength{\parskip}{0.3cm} %設定段落之間的距離
+\linespread{1.5}
+\selectfont %設定行距
+
+\usepackage[multiple]{footmisc} %設定單點多footnote
+
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{booktabs}
+\usepackage{lscape}
+
+\pagestyle{headings}
+
+%下面這段設定 tcolorbox 以便使用特殊的段落方塊
+\usepackage[most]{tcolorbox}
+\newtcbtheorem{warning}{\bfseries Warning}{enhanced,drop shadow={black!50!white},
+  coltitle=black,
+  top=0.3in,
+  attach boxed title to top left=
+  {xshift=1.5em,yshift=-\tcboxedtitleheight/2},
+  boxed title style={size=small,colback=pink}
+}{warning}
+
+\newtcbtheorem{info}{\bfseries Information}{enhanced,drop shadow={black!50!white},
+  coltitle=black,
+  top=0.3in,
+  attach boxed title to top left=
+  {xshift=1.5em,yshift=-\tcboxedtitleheight/2},
+  boxed title style={size=small,colback=yellow}
+}{info}
+
+%paragraph 的設定
+\usepackage[explicit]{titlesec}
+\usepackage{ulem}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}[runin]
+  {\normalfont\normalsize\bfseries}{}{15pt}{\uline{\theparagraph\hspace*{1em}#1}}
+\titleformat{name=\paragraph,numberless}[runin]
+  {\normalfont\normalsize\bfseries}{}{15pt}{\uline{#1}}
+
+% 下面這段讓一頁裏可以超過兩張圖片
+\usepackage{float}
+\renewcommand\floatpagefraction{.9}
+\renewcommand\topfraction{.9}
+\renewcommand\bottomfraction{.9}
+\renewcommand\textfraction{.1}   
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{glossaries}
+\usepackage{listings}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.95,0.95,0.95}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=matlab,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+%\usepackage[table]{xcolor}
+\usepackage{svg}
+\usepackage{amsmath}
+\usepackage[xetex, colorlinks=true, citecolor=blue, linkcolor=blue, urlcolor=blue]{hyperref}
+
+\renewcommand{\baselinestretch}{1.3} 
+
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+\usepackage{tikz}
+
+%讓 item description 好看一點
+\usepackage{enumitem}
+
+\begin{document}
+
+
+\title{機器人設計}                                                                                                                                                                                        
+\author{a, b and c}
+
+\maketitle
+\tableofcontents
+\vfill
+
+\chapter{前言}
+\section{研究動機}
+因為過去.kdksdka  
+
+
+%還要加的....
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.9\textwidth]{figure/teach}
+\caption{}
+\label{}
+\end{center}
+\end{figure}
+
+
+
+
+
+\begin{tabular}{|l|c|r|p{1.7cm}|}
+  \hline
+  left & centered & right & a fully justified paragraph cell\\
+  \hline
+  l & c & r & p\\
+  \hline
+\end{tabular}
+
+因為過去.kdksdka  
+
+\begin{equation}
+\sum\frac{1}{3\sqrt{2.5}}
+\end{equation}
+
+\section{文獻回顧}
+\chapter{方法}
+\chapter{實驗過程}
+\chapter{討論}
+\chapter{未來展望}
+\end{document}
