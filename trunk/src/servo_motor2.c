@@ -1,3 +1,11 @@
+/**
+Author:
+Date:
+Description:
+This file demonstrates how to control a step motor using C code.
+**/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <wiringPi.h>
